@@ -135,14 +135,14 @@ const LoginPage = () => {
 
           <div className="mt-6">
             {/* Remove link, this needs toast and checks and then redirect*/}
-            <button
+            <a
               type="submit"
               //onClick={handleSubmit}
               href="/dashboard"
               className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-slate-700 rounded-lg hover:bg-[#fe0304] focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
             >
-              {isSuccess ? "Welcome" : "Sign In"}
-            </button>
+              {/*isSuccess ? "Welcome" : "Sign In"*/} Sign In
+            </a>
           </div>
 
           <div className="flex items-center justify-between mt-4">
