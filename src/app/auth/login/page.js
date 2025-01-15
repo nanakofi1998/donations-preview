@@ -7,15 +7,15 @@ import { login, reset } from "../../lib/features/auth/authSlice";
 import { toast } from "react-toastify";
 
 const LoginPage = () => {
-  const [email, setLocalEmail] = useState("");
-  const [password, setLocalPassword] = useState("");
+  //const [email, setLocalEmail] = useState("");
+  //const [password, setLocalPassword] = useState("");
 
-  const dispatch = useDispatch();
-  const { user, institution_admin, isLoading, isError, isSuccess, message } =
-    useSelector((state) => state.auth);
+  //const dispatch = useDispatch();
+  //const { user, institution_admin, isLoading, isError, isSuccess, message } =
+    //useSelector((state) => state.auth);
 
   // redirect if logged in already, or after login
-  useEffect(() => {
+ /* useEffect(() => {
     if (isError) {
       toast.error("Either email or password is incorrect");
     }
@@ -27,16 +27,16 @@ const LoginPage = () => {
         //console.log("Redirecting to /user/dashboard because user is a regular user")
         setTimeout(() => (window.location.href = "/dashboard"), 1000);
       }
-    }
+    }*/
     /*Here so that welcome shows, since welcome is based on isSuccess
          Other option is to have a showWelcome state be set in the isSuccess if statement
          theoretically other option is better, but next.js moves fast and the intentional overhead 
          gives django and http time to catch i.e. better overvall UX
-        */
+        
     setTimeout(() => dispatch(reset()), 1500);
-  }, [isError, isSuccess, message, user, institution_admin, dispatch]);
+  }, [isError, isSuccess, message, user, institution_admin, dispatch]);*/
 
-  const handleSubmit = (e) => {
+  /*const handleSubmit = (e) => {
     e.preventDefault();
     if (!email) {
       toast.error("An email must be provided");
@@ -53,7 +53,7 @@ const LoginPage = () => {
     };
 
     dispatch(login(userData));
-  };
+  };*/
   return (
     <div className="h-screen flex place-items-center bg-slate-100">
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-2xl shadow-2xl lg:max-w-4xl">
@@ -101,10 +101,10 @@ const LoginPage = () => {
             </label>
             <input
               id="LoggingEmailAddress"
-              value={email}
+              /*value={email}*/
               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
               type="email"
-              onChange={(e) => setLocalEmail(e.target.value)}
+              /*onChange={(e) => setLocalEmail(e.target.value)}*/
             />
           </div>
 
@@ -126,10 +126,10 @@ const LoginPage = () => {
 
             <input
               id="loggingPassword"
-              value={password}
+              /*value={password}*/
               className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
               type="password"
-              onChange={(e) => setLocalPassword(e.target.value)}
+              /*onChange={(e) => setLocalPassword(e.target.value)}*/
             />
           </div>
 
@@ -137,7 +137,8 @@ const LoginPage = () => {
             {/* Remove link, this needs toast and checks and then redirect*/}
             <button
               type="submit"
-              onClick={handleSubmit}
+              //onClick={handleSubmit}
+              href="/dashboard"
               className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-slate-700 rounded-lg hover:bg-[#fe0304] focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
             >
               {isSuccess ? "Welcome" : "Sign In"}
